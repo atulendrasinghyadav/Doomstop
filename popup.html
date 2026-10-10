@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoomStop</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="popup">
+  <div class="header-row">
+    <h1>DoomStop</h1>
+    <label class="switch" aria-label="Enable or disable DoomStop">
+      <input type="checkbox" id="enableToggle">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="card" id="statsCard">
+    <div class="stat-row">
+      <span class="stat-label">Today</span>
+      <span class="stat-value" id="totalTime">0 min</span>
+    </div>
+    <div id="progressContainer">
+      <div class="progress">
+        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+      </div>
+      <div class="stat-row">
+        <span class="stat-label" id="limitLabel">Limit</span>
+        <span class="stat-value" id="limitValue">30 min</span>
+      </div>
+    </div>
+
+    <h2>Sites</h2>
+    <div id="siteList">
+      <p class="empty">No usage recorded today. Start browsing a watched site.</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <a class="link" id="settingsLink" href="#">Settings</a>
+  </div>
+
+  <script src="defaults.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoomStop settings</title>
+  <link rel="stylesheet" href="ui.css">
+</head>
+<body class="options">
+  <div class="header-row">
+    <h1>DoomStop settings</h1>
+    <span class="saved-msg" id="savedMsg">Settings saved</span>
+  </div>
+
+  <div class="card">
+    <h2>Watched sites</h2>
+    <p class="stat-label">One site per line. Use <code>youtube.com/shorts</code> to match only a path.</p>
+    <div class="form-group">
+      <textarea id="sitesInput" aria-label="Watched sites, one per line" rows="8"></textarea>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Limits</h2>
+
+    <div class="form-group row">
+      <label for="sessionScreenLimit">Screens per session</label>
+      <input type="number" id="sessionScreenLimit" class="number-input" min="0" max="1000" aria-label="Screens per session, 0 to disable">
+    </div>
+
+    <div class="form-group row">
+      <label for="dailyMinutesLimit">Minutes per day (allowed time)</label>
+      <input type="number" id="dailyMinutesLimit" class="number-input" min="0" max="1440" aria-label="Daily minutes limit, 0 to disable">
+    </div>
+
+    <div class="form-group row">
+      <label for="breakMinutes">Break lockout duration (minutes)</label>
+      <input type="number" id="breakMinutes" class="number-input" min="1" max="120" aria-label="Break duration in minutes">
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>Behavior</h2>
+
+    <div class="checkbox-row">
+      <input type="checkbox" id="greyscaleEnabled">
+      <label for="greyscaleEnabled">Greyscale fade near limit</label>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn btn-primary" id="saveBtn">Save settings</button>
+    <button class="btn btn-secondary" id="restoreBtn">Restore defaults</button>
+  </div>
+
+  <script src="defaults.js"></script>
+  <script src="options.js"></script>
+</body>
+</html>
