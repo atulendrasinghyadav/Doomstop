@@ -45,7 +45,6 @@ Unlike traditional site blockers that permanently lock you out—preventing quic
 - 📊 **Quick Glance Popup & Badge**
   - Toolbar icon badge displays today's total active minutes (e.g., `12m`).
   - Clean popup displays total daily time, a progress bar (which turns amber at 80% capacity), and a per-site breakdown sorted by time spent.
-  - Master on/off toggle for immediate control.
 
 - 🔒 **100% Private & Offline**
   - **Zero telemetry, zero analytics, and zero network calls.**
@@ -141,7 +140,6 @@ Access settings by right-clicking the DoomStop toolbar icon and selecting **Opti
 
 | Setting | Default | Range | Description |
 |---|---|---|---|
-| **Master Switch** | `On` | On / Off | Enable or pause the extension instantly. |
 | **Watched Sites** | Default 9 sites | Custom list | List of sites and paths to monitor (one per line). |
 | **Screens per Session** | `50` | `0` to `1000` | Max scroll distance before a pause (1 screen = 900 px). Set to `0` to disable. |
 | **Minutes per Day** | `30` | `0` to `1440` | Total active minutes allowed across all watched sites before lockout. Set to `0` to disable. |

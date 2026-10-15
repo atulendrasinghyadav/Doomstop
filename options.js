@@ -65,14 +65,12 @@
     showSaved();
   }
 
-  // ─── Restore defaults (BR-45: everything except on/off switch) ───
+  // ─── Restore defaults ───
   async function onRestore() {
-    var current = await getSettings();
     var toWrite = {};
     var keys = Object.keys(DEFAULTS);
     for (var i = 0; i < keys.length; i++) {
       var k = keys[i];
-      if (k === 'enabled') continue; // BR-45: keep on/off
       toWrite[k] = DEFAULTS[k];
     }
     await chrome.storage.sync.set(toWrite);

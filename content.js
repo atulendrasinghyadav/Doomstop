@@ -162,10 +162,8 @@
   // Executes synchronously as script starts so reloaded pages (e.g. Instagram) block immediately.
   function fastLockoutCheck() {
     var hostname = location.hostname.toLowerCase().replace(/^www\./, '');
-    chrome.storage.sync.get(['sites', 'enabled'], function (syncData) {
+    chrome.storage.sync.get(['sites'], function (syncData) {
       var sitesText = (syncData && syncData.sites !== undefined) ? syncData.sites : DEFAULTS.sites;
-      var enabled = (syncData && syncData.enabled !== undefined) ? syncData.enabled : DEFAULTS.enabled;
-      if (!enabled) return;
 
       var parsedRules = parseRules(sitesText);
       if (!hostMayMatch(hostname, parsedRules)) return;
@@ -266,7 +264,7 @@
   }
 
   function checkOnLoad() {
-    if (!settings || !settings.enabled || !currentRule) return;
+    if (!settings || !currentRule) return;
     var now = Date.now();
 
     // Active lockout?
@@ -320,7 +318,7 @@
 
   // ─── Scroll tracking (BR-10, BR-11, BR-12) ───
   function onScroll(e) {
-    if (!settings || !settings.enabled || !currentRule) return;
+    if (!settings || !currentRule) return;
 
     var now = Date.now();
 
@@ -480,7 +478,7 @@
     // BR-6: re-check path match every tick for SPAs
     currentRule = matchRule(hostname, location.pathname, rules);
 
-    if (!settings.enabled || !currentRule) {
+    if (!currentRule) {
       removeGreyscale();
       return;
     }

@@ -209,7 +209,14 @@ chrome.runtime.onInstalled.addListener(function (details) {
   }
 });
 
-// ─── Refresh badge on startup ───
+// ─── Refresh badge and ensure enabled on startup ───
+chrome.storage.sync.get(['enabled'], function (stored) {
+  if (stored && stored.enabled === false) {
+    chrome.storage.sync.set({ enabled: true });
+  }
+});
+
 getTodayStats().then(function (result) {
   updateBadge(result.totalSeconds);
 });
+

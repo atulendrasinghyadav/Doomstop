@@ -1,11 +1,10 @@
 /* popup.js — DoomStop popup logic.
  * Reads stats from background, displays today's summary,
- * toggle on/off, reset, and link to settings. */
+ * and link to settings. */
 
 (function () {
   'use strict';
 
-  var enableToggle = document.getElementById('enableToggle');
   var totalTimeEl = document.getElementById('totalTime');
   var progressContainer = document.getElementById('progressContainer');
   var progressFill = document.getElementById('progressFill');
@@ -19,14 +18,10 @@
   async function init() {
     settings = await getSettings();
 
-    // Set toggle state
-    enableToggle.checked = settings.enabled;
-
     // Load and display stats
     await refreshStats();
 
     // Event listeners
-    enableToggle.addEventListener('change', onToggle);
     settingsLink.addEventListener('click', function (e) {
       e.preventDefault();
       chrome.runtime.openOptionsPage();
@@ -96,12 +91,6 @@
         siteList.append(row);
       }
     }
-  }
-
-  async function onToggle() {
-    var enabled = enableToggle.checked;
-    await chrome.storage.sync.set({ enabled: enabled });
-    settings.enabled = enabled;
   }
 
   init();
